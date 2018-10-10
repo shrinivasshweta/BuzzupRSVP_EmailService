@@ -2,8 +2,8 @@ package com.stackroute.buzzup.rsvp.domain;
 
 import java.util.Date;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+// import lombok.AllArgsConstructor;
+// import lombok.NoArgsConstructor;
 
 
 public class EventDetails {

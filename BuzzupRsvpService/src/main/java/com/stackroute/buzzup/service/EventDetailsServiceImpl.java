@@ -15,7 +15,8 @@ public class EventDetailsServiceImpl implements EventDetailsService {
 
 	private EventRepository eventRepository;
 
-	String topic =KafkaConfiguration.getTopic();
+	private String topic;
+	topic=KafkaConfiguration.getTopic();
 
 	// Kafka template from configuration and topic
 

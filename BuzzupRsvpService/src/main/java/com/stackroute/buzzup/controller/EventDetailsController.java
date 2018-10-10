@@ -63,7 +63,7 @@ private EventDetailsService eventDetailsService;
 	
 	//Handler Method to get all the events
 	@GetMapping("/events")
-	public ResponseEntity<?> AllEvent() {
+	public ResponseEntity<?> allEvent() {
 	 
 		List<EventDetails>eventList = eventDetailsService.getDetails();
 		return new ResponseEntity<List<EventDetails>>(eventList, HttpStatus.OK);

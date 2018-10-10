@@ -17,7 +17,8 @@ public class EventDetailsServiceImpl implements EventDetailsService {
 
 	String topic =KafkaConfiguration.getTopic();
 
-	
+	// Kafka template from configuration and topic
+
 	public KafkaTemplate<String, EventDetails> kafkaTemplate;
 
 	
@@ -28,17 +29,20 @@ public class EventDetailsServiceImpl implements EventDetailsService {
 		this.kafkaTemplate = kafkaTemplate;
 	}
 
+	//Method to create Event
 	public EventDetails createEvent(EventDetails eventDetails) {
 		kafkaTemplate.send(topic,eventDetails );
 		EventDetails savedEvent = eventRepository.save(eventDetails);
 		return savedEvent;
 	}
 
+	//Method to get event data by Event Name using Repository Method
 	public EventDetails eventData(String eventName) {
 		EventDetails eventData = eventRepository.getByEventName(eventName);
 		return eventData;
 	}
 
+	//Method to get details of all the events
 	public List<EventDetails> getDetails() {
 		List<EventDetails> eventDetailsList = (List<EventDetails>) eventRepository.findAll();
 		return eventDetailsList;
@@ -49,11 +53,13 @@ public class EventDetailsServiceImpl implements EventDetailsService {
 		return eventList;
 	}*/
 
+	//Method to get the event by emailId using repository method
 	public EventDetails getEvent(String emailId) {
 		EventDetails eventList = eventRepository.getByEmailId(emailId);
 		return eventList;
 	}
 	
+	//Method to delete the event by emailId
 	public boolean deletedEvent(String emailId)
 	{
 		EventDetails deletedEvent = eventRepository.getByEmailId(emailId);
@@ -71,6 +77,7 @@ public class EventDetailsServiceImpl implements EventDetailsService {
 
 	}
 
+	//Method to retrieve event using id
 	private EventDetails getUserById(String id) {
 		EventDetails displayEvent = eventRepository.findById(id).get();
 

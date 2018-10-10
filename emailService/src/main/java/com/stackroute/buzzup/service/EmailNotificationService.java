@@ -30,10 +30,11 @@ public class EmailNotificationService {
 	}*/
 
 	EmailDetails emailDetails = new EmailDetails();
-	String emailBody;
-	String eventName;
-	Date eventDate;
-	String url = "www.google.co.in";
+	private String emailBody;
+	private String eventName;
+	private Date eventDate;
+	private String url;
+	url= "www.google.co.in";
 
 	@KafkaListener(topics = "rsvpEvent")
 	public void sendNotification(EventDetails event) throws MessagingException {

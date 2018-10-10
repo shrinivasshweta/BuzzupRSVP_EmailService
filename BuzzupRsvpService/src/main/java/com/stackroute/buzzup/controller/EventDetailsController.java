@@ -33,6 +33,7 @@ private EventDetailsService eventDetailsService;
 	}	
 	
 
+	//Handler method to save an event in MongoDB and Kafka 
 	@PostMapping("/event")
 	public ResponseEntity<?> createEvent(@RequestBody EventDetails eventDetails) {
 		EventDetails savedEvent = eventDetailsService.createEvent(eventDetails);
@@ -45,18 +46,22 @@ private EventDetailsService eventDetailsService;
 		return new ResponseEntity<List<EventDetails>>(existingEvent, HttpStatus.OK);
 	}*/
 	
+	//Handler Method to get the event by emailId
 	@GetMapping("/event/getByEmail/{emailId}")
 	public ResponseEntity<?> getEvent(@PathVariable String emailId){
 		EventDetails existingEvent =eventDetailsService.getEvent(emailId);
 		return new ResponseEntity <EventDetails>(existingEvent, HttpStatus.OK);
 	}
 	
+	//Handler Method to get the event by eventName
 	@GetMapping("/event/{eventName}")
 	public ResponseEntity<?> giveEvent(@PathVariable String eventName) {
 	 
 		EventDetails presentEvent = eventDetailsService.eventData(eventName);
 		return new ResponseEntity<EventDetails>(presentEvent, HttpStatus.OK);
 	}
+	
+	//Handler Method to get all the events
 	@GetMapping("/events")
 	public ResponseEntity<?> AllEvent() {
 	 
@@ -64,6 +69,7 @@ private EventDetailsService eventDetailsService;
 		return new ResponseEntity<List<EventDetails>>(eventList, HttpStatus.OK);
 	}
 	
+	//Handler Method to delete event by emailId
 	@DeleteMapping("/event/{emailId}")
 	public ResponseEntity<?> deleteEvent(@PathVariable String emailId) {
 	{

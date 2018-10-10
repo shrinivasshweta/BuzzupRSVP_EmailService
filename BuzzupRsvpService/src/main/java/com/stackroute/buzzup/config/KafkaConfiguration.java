@@ -17,6 +17,7 @@ import com.stackroute.buzzup.model.EventDetails;
 @Configuration
 public class KafkaConfiguration {
 	static final String TOPIC = "rsvpEvent";
+	// Producer factory of kafka which will hold the configuration details
 
 	@Bean
 	public ProducerFactory<String, EventDetails> producerFactory() {
@@ -28,6 +29,7 @@ public class KafkaConfiguration {
 
 		return new DefaultKafkaProducerFactory<>(config);
 	}
+	// Template imports the configuration from producerfactory
 
 	@Bean
 	public KafkaTemplate<String,EventDetails > kafkaTemplate() {

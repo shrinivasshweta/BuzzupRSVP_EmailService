@@ -9,23 +9,23 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class EventDetails {
 
 	@Id
-	String id;
-	String emailId; 
-	double creatorPhoneNo;
-	String eventName;	
-	Date startDate;
-	String startTime;
-	Date endDate;
-	String endTime;
-	String city;
-	String location;
-	String poster;
-	String type;
-	String description;
-	int numberOfGuests;
-	boolean isCompleted;
-	String artist;
-	String[] recipientEmail;
+	private String id;
+	private String emailId; 
+	private double creatorPhoneNo;
+	private String eventName;	
+	private Date startDate;
+	private String startTime;
+	private Date endDate;
+	private String endTime;
+	private String city;
+	private String location;
+	private String poster;
+	private String type;
+	private String description;
+	private int numberOfGuests;
+	private boolean isCompleted;
+	private String artist;
+	private String[] recipientEmail;
 	public String getId() {
 		return id;
 	}
